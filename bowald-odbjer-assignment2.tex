@@ -44,15 +44,17 @@
 \section{Gameplay description 7 wonders}
 
 \subsection{What is 7 wonders?}
+\label{sec:what7wond}
 7 wonder was released in 2010 and the goal is to build a civilisation in an ancient setting. 
 The game consist of several card types and a player unique game board showing the status of a players civilisation. The different cards represents different buildings which each contribute to the civilisation in some way. There are resource spawning, such as iron, chemicals or wood. Military cards which are used to battle with one's neighbours, these battles gives points to the victor and minus point to the defeated one. Battles is Science Cards, which generate points at the end of the game, the amount of points is based on the amount of science tool sets collected and the number of each science tool.
 Another card type is what we have called utility cards, they have an immediate effect on the game state, these are cards that either is tradeable for currency or trading posts that gives discount for trading with one's neighbours. Last card type is point cards, either buildings that gives a fixed amount of points or dynamic point cards that is based on oneself civilisation status or ones neighbours statuses. The game is divided into three ages, each age is divided into six turns. Each turn, each player picks a card which is either played, discarded or used as a resource to build a wonder. The rest of the cards is passed to the next player in a drafting fashion. To play a card some resources must be paid, they can either be resources generated Wonders have different impact on the game, they can either generate resources, points, currency or military power. The effect of wonders are unique for each civilisation. After the three ages points are counted for each player based on each card type, and the amount of currency when the game is over. The player that has the most point at the end wins the game. 
 
 \subsection{Thoughts on gameplay of 7 wonders}
-The gameplay in this game is centered around the draft mechanic. A player will always consider wich strategy to use based on his neighbours choice of card, what resources he has 
+The gameplay in this game is centered around the draft mechanic. A player will always consider wich strategy to use based on his neighbours choice of card, what resources they have, status of their military power and or their ability to trade cheap resources to them self. 
 
-Boardgamegeeks REF characterize it as a strategy game while criticalboardgamer characterize it as a Drafting game. Neither is contradicts each other but one could argue that the characteristics of a drafting game could be more explanatory for the game play in the game.
+\citeauthor{critical7wond} makes a statement about the scalability of players in the game. That even if this game can scale up to seven players. One is mostly effected by its neighbours. Thou arguing for 2-3 players being the optimal to play. Becasuse this tightens the gameplay. 
 
+\
 7 wonders can be played with two to seven player. Boardgamegeeks suggest that its best with four players. The argument is that since each player only can have two neighbors  
 
 \subsection{7 wonders analysis using game design patterns}
@@ -222,15 +224,16 @@ Ricochet robots is a game where players challenge each other to move a robot to 
 \end{figure}
 
 \section{Similarities and difference between the game using our analysis}
-  Här kan vi dra slutsater om likheter och olikheter baserat på analysen mha Game design patterns. 
+  Based on our Game design patteren analysis oen can se that both game have 
 
 \section{Design structures in the games}
-Short description on what we are looking for
+Short description on what we are looking for.
 
 \subsection{Design structures used to keep players engaged with the game}
 \paragraph{7 Wonders} is made out of turns but all players are playing at the same time. The state of the gameboard are always change so one needs to pay attention of during each round. Since the game offers a lot of ways to collect points one could always change their current strategy to get back in the game, to retain their interest.
 
 \paragraph{In Ricocheting Robots} everyone is playing simultaneously often you can not be sure that you have found an optimal solution, therefore a player can always try to find a better solution. Intense Competitive game play due to the time stress. If someone is dominating their opponents, the game session is so short that players are probably not losing their interests.
+
 
 \subsection{Design structures used to make the games typically end near the state time}
 \paragraph{7 Wonders} have a fixed amount of cards to play during each of the three stages of the game. One card is played each round and each stage consists of six rounds.
@@ -239,9 +242,12 @@ Short description on what we are looking for
 
 \subsection{Design structures used to make players interact with each other}
 
-\paragraph{In 7 wonders} your strategy are both dependent on the cards you are given and the strategy your opponents choose.
+\paragraph{In 7 wonders} one can not directly interact with all other players, only ones neighbours(players on the left and right side). One can interact with neighbours by either trade gold for resources or beat them in military power. As described in section~\ref{sec:what7wond} nearly all cards have a resource requirements that must be meet to be able to play it. Its very important to watch the neighbours resource stockpile to see if one can use them to pay for a card. The other aspect is military power. At the end of each age of the game, a player's military status is compared to ones neighbours. The one with a higher military status gets a fixed amount of points while the loser of gets a minus point. These points get counted in the \textit{set-down} stage of the game. The number of points is determined by which age the battle is sattle in. The later age, the higher point. 
+There are a lot of indirect interaction between all players in 7 wonders, due to the drafting mechanic. Players should always base their picks on what ther opponents are picking. For example if someone goes heavy on science cards others need to pick this category or \textit{hate-pick} science cards and use these to build wonders or discarding them for currency.
 
 \paragraph{In Ricocheting Robots} the players are always trying to beat their own or other players solutions, by figure out another one path to the goal using even fewer moves. Wich means that the player interaction is the bread and butter of the game design, since the difficulty of the game is based on cost of the current known best paths, which is always stated by a player.
+
+\paragraph{Overall both games} have a lot of indirect interaction between players. Both the drafting mechanics in 7 wonders and the path finding in Ricocheting Robots are the core gameplay mechanics and they affects the other players indirectly. Based on this our conclusion is that these indirect interaction benefits the games, since it is hard to target a specific player which can make the game unsatisfying.
 
 \subsection{Design structures to make players feel that they are achieving something}
 \paragraph{7 wonders} gives the player the ability to build a civilisation. Even if the player indirectly are collecting points by building theese aspects of the civilisation. When the game ends each players civilisation have made a giant leap in progress then when the game started.
