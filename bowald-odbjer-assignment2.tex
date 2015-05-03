@@ -41,7 +41,6 @@
 \newpage
 \tableofcontents{}
 \newpage
-\section{Introduction}
 
 \section{Gameplay description 7 Wonders}
 \label{sec:what7wond}
@@ -124,6 +123,8 @@ We have analize using Game Design patterns framework \cite{Bjork2003}.
 Some of the patterns is fetch from the wikipedia for Gameplay Design Patterns \url{gdp2.tii.se}.
 Others is defined by us.
 At the end of this section a comparison of both games is presented.
+One weakness of the Game design patterns is that every patterns either needs to be defined in every analysis so one could not misinterpret it or universally defined(in a database or wiki).
+One negative thing about universally defining patterns is that one could lose their own analysis of the game play and instead try to fit certain predefined patterns and could miss other key patterns.
 
 \newpage
 \subsection{7 Wonders analysis}
@@ -327,7 +328,7 @@ Red edges indicates that at pattern is in conflict with another pattern.}
   We agree with \citeauthor{danbeckRR} statements, but still thinks that due to the \textit{time pressure} mechanic there is less social interactions during the players game session.
 
 \section{Design structures in the games}
-This section answers the questions stated by the exercise. It focuses on what  specific gameplay mechanics are used to achieve a certain goal. 
+This section answers the questions stated by the exercise. It focuses on what specific gameplay mechanics are used to achieve a certain goal. 
 
 \subsection{Keeping players engaged with the game}
 \paragraph{Due to 7 Wonders} drafting mechanics players are playing simultaneously. Which in the group's opinion is one of the key components for keeping players engaged during the game. Furthermore, this usually means that little to no time has to be spent on waiting for other players. Another aspect of 7 Wonders drafting mechanics is that players need to constantly analyse their opponents board state and base their card pick and overall strategy upon that. Since the board state changes for each picked card there is always new information to process, which encourages players to engage more in the game.
@@ -338,7 +339,7 @@ Our thoughts about this is even if that is the case this is the nature of the \t
 Also to get in the spot of the getting the perfect card one has to make decisions so that one minimize the possibility that an opponent need the same "perfect card" as oneself.
 Also the reward of this can get a player more engage. One could argue that this can make the opponents less engaged in the game due to the advantage, but our opinion is that even if a player gets a big advantage the game instances are short enough so that other players would not have time to lose interest.  
 
-\paragraph{In Ricocheting Robots} everyone is playing simultaneously. In most cases you can not be certain that you have found the optimal solution, therefore a player can always try to find a better solution. This keeps players engaged even after they have found a solution. The game revolves around intense Competitive gameplay which is caused by trying to actively best your opponents before the time runs out. The way the game plays out is in itself very engaging. If someone were to dominate their opponents and win every round in a row, there is still a good chance that the other players would not have the time to lose interest due to how short the rounds are.
+\paragraph{In Ricocheting Robots} everyone is playing simultaneously. In most cases you can not be certain that you have found the optimal solution, therefore a player can always try to find a better solution. This keeps players engaged even after they have found a solution. The game revolves around intense Competitive gameplay which is caused by trying to actively best your opponents before the time runs out. The way the game plays out is in itself very engaging. If someone were to dominate their opponents and win every round in a row, there is still a good chance that the other players would not have the time to lose interest due to how short the rounds are. \citeA{futurewolfieRR} argues that this games only engages certain types of players, or rather certain types of brains. That to players who are not good at solving puzzles, or stepping through a solution in their head without moving the pieces, this game will be \textit{Dead on arrival}. We also agrees to this facts, but overall a game cannot satisfy everyone.
 
 \subsection{Ending the game in time}
 \paragraph{7 Wonders} have a fixed amount of cards to play during each of the three stages of the game. One card is played each round and each stage consists of six rounds. Therefore, the time it takes to play the game is reliant on how fast players decide upon which cards they want to play.
@@ -379,10 +380,6 @@ But in a game of three a player have more information of which cards that are in
 \paragraph{In Ricocheting Robots} when a player found a path he had achieved something. Even if is not the winning path, a player still has figured out the puzzle.
 
 \paragraph{Overall both games} is focused on either building up something or collecting something, even if a player loses non of the games includes a destructive pattern, players will never lose points or have their board state weakend.
-
-\section{What parts of the gameplay should be removed from the game or are missing?}
-The analysis 
-
 
 \newpage
 \bibliographystyle{apacite}
