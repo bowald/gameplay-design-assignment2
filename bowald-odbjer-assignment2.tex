@@ -127,11 +127,12 @@ We have analize using Game Design patterns framework /cite{Bjork2003}. Some of t
   \draw[->,draw=black] (Ca) to (Di);
 
   % %Drafting, discarding
-  \node[draw,fill=gray,text=yellow, align=center] (ImIn) at (-0.1,8) {Imperfect\\Information};
-  \node[draw,fill=gray,text=yellow, align=center] (LiRe) at (-2.1,8) {Limited\\Resources};
-  \node[draw,fill=gray,text=yellow, align=center] (TuBa) at (2,8) {Turned\\Based};
-  \node[draw,fill=gray,text=yellow, align=center] (SiAc) at (4,8) {Simultaneous\\Action};
-  \node[draw,fill=gray,text=yellow, align=center] (PlIn) at (6.5,8) {Player\\Interaction};
+  \node[draw,fill=gray,text=yellow, align=center] (ImIn) at (-0.9,8) {Imperfect\\Information};
+  \node[draw,fill=gray,text=yellow, align=center] (LiRe) at (-3.1,8) {Limited\\Resources};
+  \node[draw,fill=gray,text=yellow, align=center] (TuBa) at (1,8) {Turned\\Based};
+  \node[draw,fill=gray,text=yellow, align=center] (SiAc) at (3,8) {Simultaneous\\Action};
+  \node[draw,fill=gray,text=yellow, align=center] (PlIn) at (5.5,8) {Player\\Interaction};
+  \node[draw,fill=gray,text=yellow, align=center] (Ra) at (8,8) {Randomness};
 
   \draw[->,draw=black] (Di) to (ImIn);
   \draw[->,draw=black] (Di) to (LiRe);
@@ -141,16 +142,19 @@ We have analize using Game Design patterns framework /cite{Bjork2003}. Some of t
   \draw[->,draw=black] (Da) to (TuBa);
   \draw[->,draw=black] (Da) to (SiAc);
   \draw[->,draw=black] (Da) to (PlIn);
+  \draw[->,draw=black] (Da) to (Ra);
 
   % %Drafting trading cards
   
   \node[draw,fill=gray,text=yellow, align=center] (AnPa) at (-2.5,9.5){Analysis\\Paralysis};
   \draw[-,draw=red] (LiRe) to (AnPa);
   \node[draw,fill=gray,text=yellow] (TaPl) at (1,10){Tacticle Planning};
+  \node[draw,fill=gray,text=yellow] (Re) at (5,10){Replayability};
   \draw[->,draw=black] (ImIn) to (TaPl);
   \draw[->,draw=black] (LiRe) to (TaPl);
   \draw[->,draw=black] (TuBa) to (TaPl);
   \draw[->,draw=black] (PlIn) to (TaPl);
+  \draw[->,draw=black] (Ra) to (Re);
 
   % \node[draw,fill=gray,text=yellow] (KiMa) {King Maker};
 
@@ -165,59 +169,69 @@ We have analize using Game Design patterns framework /cite{Bjork2003}. Some of t
 \begin{figure}[htb]
 \centering
   \begin{tikzpicture}
-    \node[draw,fill=gray,text=yellow] (TimeGlass) at (-5,0) {Time Glass};
-    \node[draw,fill=gray,text=yellow, right=of TimeGlass] (NPGP) {Non Player Owned Game Pieces};
-    \node[draw,fill=gray,text=yellow, right=of NPGP] (Board) {Board};
-    \node[draw,fill=gray,text=yellow, right=of Board] (GoalTokens) {Goal Tokens};
 
-    \node[draw,fill=gray,text=yellow] at (1.5,1.5) (GoalP) {Goal oriented pieces};  
-    \node[draw,fill=gray,text=yellow] at (-0.2,2.3) (SP) {Support pieces};  
-    \node[draw,fill=gray,text=yellow] (Walls) at (3.8,1.5) {Walls};  
-    \node[draw,fill=gray,text=yellow] (Tiles) at (5,1.5) {Tiles};  
+    \node[draw,fill=gray!50,text=gray, align=center] (TiGl) at (-6,0) {Time\\Glass};
 
-    \node[draw,fill=gray,text=yellow] (TimeLimit) at (-7, 3) {Time Limit};  
-    \node[draw,fill=gray,text=yellow] (TimeP) at (-4.5, 3) {Time Pressure};  
-    \node[draw,fill=gray,text=yellow] (SI) at (-5, 5.5){Social Interactions};
+    \node[draw,fill=gray!50,text=gray, align=center] (GOPi) at (-1.5,0) {Goal Oriented\\Pieces};
+    \node[draw,fill=gray!50,text=gray, align=center] (SuPi) at (0.5,0) {Support\\Pieces};
+    
+    \node[draw,fill=gray!50,text=gray, align=center] (Wa) at (2,0) {Walls};
+    \node[draw,fill=gray!50,text=gray, align=center] (Ti) at (4,0) {Tiles};
 
-    \node[draw,fill=gray,text=yellow, align=center] (SiAc) at (-2, 3){Simultaneous\\Action};
+    \node[draw,fill=gray!50,text=gray, align=center] (GoTo) at (7,0) {Goal\\Tokens};  
 
-    \node[draw,fill=gray,text=yellow] (SpawnT) at (5.2,3) {Spawn Tiles};  
-    \node[draw,fill=gray,text=yellow] (GoalT)  at (3,3) {Goal Tiles};  
+    \node[draw,fill=gray!50,text=gray, align=center] (MOPi) at (0,1.5) {Mutual Owned\\Pices};
+    \node[draw,fill=gray!50,text=gray, align=center] (GoTi) at (3.6,1.5) {Goal\\Tiles};
+    \node[draw,fill=gray!50,text=gray, align=center] (SpTi) at (5,1.5) {Spawn\\Tiles};
 
-    \node[draw,fill=gray,text=yellow] (Randomness) at (4.3,4){Randomness};
-    \node[draw,fill=gray,text=yellow, left=of Randomness] (TacP) {Tactical planning};  
-    \node[draw,fill=gray,text=yellow] (Points) at (7,4.5) {Points};
-    \node[draw,fill=gray,text=yellow, above=of TimeLimit] (AP) {Analysis Paralysis};
-    \node[draw,fill=gray,text=yellow] (CGP) at (0,6) {Challenging Game Play};
+    \node[draw,fill=gray,text=yellow, align=center] (TiLi) at (-7,4.5) {Time\\Limit};
+    \node[draw,fill=gray,text=yellow, align=center] (TiPr) at (-5,4.5) {Time\\Pressure};
 
-    \draw node[vertex] (JointGT) at (6.5,3.7) {};
+    \node[draw,fill=gray,text=yellow, align=center] (Bo) at (3,3) {Board};
+    \node[draw,fill=gray,text=yellow, align=center] (Ra) at (5,3) {Randomness};
+    \node[draw,fill=gray,text=yellow, align=center] (Po) at (7,3) {Points};
+    \node[draw,fill=gray,text=yellow, align=center] (TuBa) at (-1,3) {Turned\\Based};
 
-    \draw[->,draw=black] (TimeGlass) to (TimeLimit);
-    \draw[->,draw=black] (TimeGlass) to (TimeP);
+    
+    \node[draw,fill=gray,text=yellow, align=center] (AnPa) at (-7.5,6) {Analysis\\Paralysis};
+    \node[draw,fill=gray,text=yellow, align=center] (SoIn) at (-5,6) {Social\\Interactions};
+    \node[draw,fill=gray,text=yellow, align=center] (SiAc) at (-2,4.5) {Simultaneous\\Action};
+    \node[draw,fill=gray,text=yellow, align=center] (TaPl) at (0.5,4.5) {Tactical\\Planning};
+    \node[draw,fill=gray,text=yellow, align=center] (BoSt) at (2.8,4.5) {Board\\State};
 
-    \draw[->,draw=black] (NPGP) to (GoalP);
-    \draw[->,draw=black] (NPGP) to (SP);
-    \draw[->,draw=black] (Board) to (Walls);
-    \draw[->,draw=black] (Board) to (Tiles);  
+    \node[draw,fill=gray,text=yellow, align=center] (ChGa) at (1,6.5) {Challenging\\Gameplay};
 
-    \draw[->,draw=black] (GoalTokens) to (JointGT);
-    \draw[->,draw=black] (SpawnT) to (JointGT);
-    \draw[->,draw=black] (GoalTokens) to (Points);
-    \draw[->,draw=black] (JointGT) to (Randomness);
+    \draw[->,draw=black] (TiGl) to (TiLi);
+    \draw[->,draw=black] (TiGl) to (TiPr);
 
-    \draw[->,draw=black] (Tiles) to (SpawnT);
-    \draw[->,draw=black] (Tiles) to (GoalT);
-    \draw[->,draw=black] (NPGP) to (SiAc);
-    \draw[->,draw=black] (SiAc) to (CGP);
-    \draw[->,draw=black] (TimeP) to (CGP);
-    \draw[->,draw=black] (Points) to (CGP);
-    \draw[->,draw=black] (TacP) to (CGP);
-    \draw[->,draw=black] (SP) to (TacP);
-    \draw[->,draw=black] (GoalP) to (TacP);
+    \draw[->,draw=black] (GOPi) to (MOPi);
+    \draw[->,draw=black] (SuPi) to (MOPi);
 
+    \draw[->,draw=black] (Wa) to (Bo);
+    \draw[->,draw=black] (Ti) to (GoTi);
+    \draw[->,draw=black] (Ti) to (SpTi);
 
-    \draw[-,draw=red] (TimeLimit) to (AP);
-    \draw[-,draw=red] (TimeP) to (SI);
+    \draw[->,draw=black] (GoTi) to (Bo);
+    \draw[->,draw=black] (GoTo) to (Po);
+    \draw[->,draw=black] (SpTi) to (Bo);
+
+    \draw[->,draw=black] (SpTi) to (Ra);
+    \draw[->,draw=black] (GoTo) to (Ra);
+    
+    \draw[->,draw=black] (Ra) to (BoSt);
+    \draw[->,draw=black] (Bo) to (BoSt);
+    \draw[->,draw=black] (MOPi) to (BoSt);
+    \draw[->,draw=black] (Po) to (ChGa);
+    \draw[->,draw=black] (TiPr) to (ChGa);
+
+    \draw[->,draw=black] (TuBa) to (TaPl);
+    \draw[->,draw=black] (MOPi) to (TaPl);
+    \draw[->,draw=black] (BoSt) to (TaPl);
+    \draw[->,draw=black] (SiAc) to (ChGa);
+    \draw[->,draw=black] (TaPl) to (ChGa);
+
+    \draw[-,draw=red] (TiLi) to (AnPa);
+    \draw[-,draw=red] (TiPr) to (SoIn);
 
   \end{tikzpicture}
 
@@ -229,7 +243,9 @@ We have analize using Game Design patterns framework /cite{Bjork2003}. Some of t
 \subsection{Similarities and difference between the game using our analysis}
   As Figures \ref{fig:A7W} and \ref{fig:RRW} shows there are a lot of similarities between the games.Even though they are different genres and their basic game play do not share any similarities. The main gameplay mechanic is that of the \textit{tactical planning} which is important in both games. In 7 wonders the player has to plan which card by tactical planning and in Ricocheting robots the tactical planning element is how to move and place the robot pieces to reach the goal tile. 
 
-  Another similarity is that both game has been able to avoid \textit{Analysis Paralysis} by different mechanics. \textit{Analysis Paralysis} is when a player is presented with a couple of options and takes a long time to reach a decision, which makes other players wait to start their player session. As our analysis states 7 wonders have solved this by limit a player's choices due to the \textit{Drafting} mechanic. While Ricocheting robots solves this by having a time limit for a player session. Another mechanic that contributes to this is that the player session takes place simultaneously and therefore limits the waiting time that a \textit{Analysis Paralysis} can cause.
+  \paragraph{Another similarity is that both game has been able to avoid \textit{Analysis Paralysis}} by different mechanics. \textit{Analysis Paralysis} is when a player is presented with a couple of options and takes a long time to reach a decision, which makes other players wait to start their player session. As our analysis states 7 wonders have solved this by limit a player's choices due to the \textit{Drafting} mechanic. While Ricocheting robots solves this by having a time limit for a player session. Another mechanic that contributes to this is that the player session takes place simultaneously and therefore limits the waiting time that a \textit{Analysis Paralysis} can cause.
+
+  \paragraph{Randomness and replayability}. In both games randomness is used to give a unique player experience every time. In richocheting robots due to the random order of goal tokens, the random spawn tiles in the set up phase and the shortest path found by a player, are all variables wich makes every game unique. Wich increase the playability of the game. 7 wonders also ralay on this fact for replayability. 
 
 \section{Design structures in the games}
 This section answers the questions stated by the excersise. It focus on what gameplay mechanics are used to achive a certain goal. 
