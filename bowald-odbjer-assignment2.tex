@@ -47,13 +47,13 @@
 7 Wonders was released in 2010 and the goal is to build a civilisation in an ancient setting.
 The game consist of several card types and a player unique game board showing the status of a player's civilisation.
 The different cards represent different buildings which each contribute to the civilisation in some way.
-There are resource spawning, such as iron, chemicals or wood. Military cards which are used to battle with one's neighbours, these battles give points to the victors and deduct points from the losers.
-Science Cards, which generate points at the end of the game. There are three different science cards, each with a unique scientific tool.
-The amount of points given by science cards is based on the amount of complete science tool sets that has been collected as well as the number of cards you have of each unique science tool type.
-Another card type is what we have chosen to call utility cards, they have an immediate effect on the game state.
+There are resource spawning, such as iron, chemicals or wood. \textit{Military cards} which are used to battle with one's neighbours, these battles give points to the victors and deduct points from the losers.
+\textit{Science cards}, which generate points at the end of the game. There are three different types of \textit{Science cards}, each with a unique scientific tool.
+The amount of points given by \textit{Science cards} is based on the amount of complete science tool sets that has been collected as well as the number of cards you have of each unique science tool type.
+Another card type is \textit{Utility cards}, they have an immediate effect on the game state.
 These cards are either played to collect money instantaneously or used to establish trading posts that give discounts while trading with one's neighbours.
-The last card type is point cards.
-They either consist of buildings that gives a fixed amount of points or dynamic point cards that are given points based on ones own and neighbouring civilisation statuses.
+The last card type is \textit{Point cards}.
+They either consist of buildings that gives a fixed amount of points or buildings that gives a dynamic amount of points based on ones own and neighbouring civilisation statuses.
 The game is divided into three ages, each age is divided into six turns.
 Each turn every player picks a card which is either played, discarded or used as a resource to build a wonder.
 Wonders have different impact on the game, they can either generate resources, points, science, currency or military power.
@@ -65,44 +65,39 @@ The amount of currency currently in each player's possession is also counted and
 The player that has the most points at the end wins the game.
 
 \subsection{Gameplay of 7 Wonders using the component framework}
-In this section we are breaking down the gameplay elements of 7 wonders by using the component framwork \cite{bjork2003describing}.
-\subsubsection{A typical gameinstance of 7 wonders}
-
+\label{sec:gpCompFrame7wond}
+In this section we are breaking down the gameplay elements of 7 wonders by using the component framework \cite{bjork2003describing}. Not all concepts will be listed, only state the \textit{game instance}, \textit{game session}, \textit{player session} and \textit{goals and subgoals} in the assignment. To give an compact overview of which game elements are available to the player.
+\subsubsection{A typical Game Instance of 7 wonders}
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
   \item Wich cards that a game should uses is decided by number of players
-  \item Players choces civilisation by picking a player unique gameboard
-  \item Cards are shuffle and each player recives seven cards of the first age
-  \item Drafting session
-  \item Cards are shuffle and each player recives seven cards of the seconed age
-  \item Drafting session
-  \item Cards are shuffle and each player recives seven cards of the third age
-  \item Drafting session
-  \item Outcome is determind by counting points based on card types and currancy
+  \item Players choices civilisation by picking a player unique game board
+  \item Game session begins for each player simultaneously
+  \item Outcome is determined by counting points based on card types and currency
   \item Clearing the game stat
 \end{itemize}
 
-\subsubsection{A typical game session of 7 wonders}
+\subsubsection{A typical Game Session of 7 wonders}
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
   \item Pick civilisation
   \item Draft of the first age
-  \item Picks a card, chose to play, discard or build wonder. Pass rest of cards to opponent.
+  \item Picks a card, chose to one action of either play it, discard it or build a wonder using it. Pass rest of cards to opponent.
   \item Drafting session of the second age
-  \item Picks a card, chose to play, discard or build wonder. Pass rest of cards to opponent.
+  \item Picks a card, chose to one action of either play it, discard it or build a wonder using it. Pass rest of cards to opponent.
   \item Drafting session of the third age
-  \item Picks a card, chose to play, discard or build wonder. Pass rest of cards to opponent.
+  \item Picks a card, chose to one action of either play it, discard it or build a wonder using it. Pass rest of cards to opponent.
 \end{itemize}
 
 \subsubsection{A typical player session of 7 wonders}
-In this game the player session is the same as the game session. All player sessions are simuntainusly due to the drafting mechanich.
+In this game the player session is the same as the game session. All player sessions are simultaneously due to the drafting mechanics.
 
 \subsubsection{Goals and subgoals}
 \begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
   \item Get as high score as possible
   \item Complete scientific tool sets
-  \item Gathere as many scientific cards of the same type as possible
+  \item Gather as many scientific cards of the same type as possible
   \item Have higher military power then the neighbours
   \item Complete the civilisations wonder
-  \item Get a high score by stratigically timing the dynamic point cards
+  \item Get a high score by strategically timing the dynamic point cards
   \item Have enough resources to play the perfect cards
 \end{itemize}
 \section{Gameplay description Ricocheting Robots}
@@ -114,19 +109,54 @@ Each turn a random goal token is revealed.
 Then each player simentainusly tries to figure out the path with the fewest moves to move the robot with corresponding color as goal token to the goal tile indicated by the goal token. 
 
 When one player have found a legit path, that player state the amount of movements required to carry out the task.
-The other players have one minute to try to beat the first player number of movements. When the time ends, that player with the fewest movements gets the point and a new turn begins.
-A player can bid a higher amount of movements in case the player with the original bid cannot show his solution.
+The other players have one minute to try to beat the first player number of movements. This is done by bidding the amount of moves needed to complete the path. A players bid can never be increased, but could be lowered if he finds a better solution. A player could also bid a higher amount of movements then the original player, in case he can not show his solution.
+When the time ends, the player with the fewest movements that can show his solution gets the point and a new turn begins.
+
 When all goal tokens are collected by the players, the player with the most goal tokens wins the game.
+
+\subsection{Gameplay of Ricocheting Robots using the component framework}
+\label{sec:gpCompFrameRR}
+With same motivation as stated in section \ref{sec:gpCompFrame7wond}, this section only contains \textit{game instance}, \textit{game session}, \textit{player session} and \textit{goals and subgoals} to give an overview of the game play elements.
+
+\subsubsection{A typical game instance of Ricocheting Robots}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item Decide if using optional support robot
+  \item Place Robots randomly on board tiles
+  \item Game session begins for each player simultaneously
+  \item Outcome is determined by counting points based on amount of goal tokens
+  \item Clearing the game stat
+\end{itemize}
+
+\subsubsection{A typical game session of Ricocheting Robots}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item Goal token revealed
+  \item Figure out path given a specific robot and a goal tile
+  \item Bid the amount of movements for that path
+  \item During the time limit try to improve ones solution
+  \item Repeat until all goal tokens are taken
+\end{itemize}
+
+\subsubsection{A typical player session of Ricocheting Robots}
+In this game the player session is the same as the game session. All player sessions are simultaneously due the mutual controlled game pieces, and that each turn is in real time.
+
+\subsubsection{Goals and subgoals}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item Get as high score as possible
+  \item Find the path for given robot and goal tile with as few movements as possible
+  \item Beat the other players movement bids
+\end{itemize}
 
 \section{Analysis using game design patterns}
 We have analize using Game Design patterns framework \cite{Bjork2003}.
 Some of the patterns is fetch from the wikipedia for Gameplay Design Patterns \url{gdp2.tii.se}.
-Others is defined by us.
+Others are defined by us.
 At the end of this section a comparison of both games is presented.
 One weakness of the Game design patterns is that every patterns either needs to be defined in every analysis so one could not misinterpret it or universally defined(in a database or wiki).
-One negative thing about universally defining patterns is that one could lose their own analysis of the game play and instead try to fit certain predefined patterns and could miss other key patterns.
+One negative thing about universally defining patterns is that one could lose their own analysis of the gameplay and instead try to fit certain predefined patterns and could miss other key patterns. 
+In the other hand if they are not universally defined, it could be time consuming defining them one self. 
+\citeauthor{Bjork2003} argues for universally defined set of patterns a in their discussion due to the time consuming job it is if every designer will define them themselves. 
+To identify which patterns the game play consist of we have been using the Component framework \cite{bjork2003describing} mention in section \ref{sec:gpCompFrame7wond} and section \ref{sec:gpCompFrameRR} and playtesting. The framework has offered some help mostly in the case of providing different in approaching the gameplay from certain given directions. One disadvantage of the component framework is that of finding patterns outside the game instance. For example in Ricocheting Robots we found out that time pressure ended up in less social interaction and challenging gameplay. Two pattern we did not find using the component framework. Thus one should not only rely on the framework for an analysis even though it offers a quicker way to analysis games, one should use playtesting as well to find patterns. Using play testing alone is also a disadvantage, since it is both time consuming and all parts of the game play may not be tested under the playtest session. Thou play testing gives an ability of finding abstract game play patterns which is hard to find using the component network.
 
-\newpage
 \subsection{7 Wonders analysis}
 \begin{figure}[htb]
 
@@ -134,7 +164,7 @@ One negative thing about universally defining patterns is that one could lose th
   \begin{tikzpicture}
 
   \node[draw,fill=gray!50,text=gray, align=center] (LTRe) at (-6,0) {Low Tech\\ Resources};
-  \node[draw,fill=gray!50,text=gray, align=center] (HTRe) at (-4,0){Hight Tech\\ Resources};
+  \node[draw,fill=gray!50,text=gray, align=center] (HTRe) at (-4,0){High Tech\\ Resources};
 
   \node[draw,fill=gray!50,text=gray, align=center] (CuRe) at (7,0) {Currency \\Resources};
   \node[draw,fill=gray!50,text=gray, align=center] (TrCa) at (5,0) {Trading \\Cards};  
@@ -245,7 +275,7 @@ Red edges indicates that at pattern is in conflict with another pattern.}
 
     \node[draw,fill=gray!50,text=gray, align=center] (GoTo) at (7,0) {Goal\\Tokens};  
 
-    \node[draw,fill=gray!50,text=gray, align=center] (MOPi) at (0,1.5) {Mutual Owned\\Pices};
+    \node[draw,fill=gray!50,text=gray, align=center] (MOPi) at (0,1.5) {Mutual Owned\\Pieces};
     \node[draw,fill=gray!50,text=gray, align=center] (GoTi) at (3.6,1.5) {Goal\\Tiles};
     \node[draw,fill=gray!50,text=gray, align=center] (SpTi) at (5,1.5) {Spawn\\Tiles};
 
@@ -308,7 +338,10 @@ Red edges indicates that at pattern is in conflict with another pattern.}
 
 
 \subsection{Similarities and difference between the game using our analysis}
-  As Figures \ref{fig:A7W} and \ref{fig:RRW} shows there are a lot of similarities between the games.Even though they are different genres and their basic game play do not share any similarities. The main gameplay mechanic is that of the \textit{tactical planning} which is important in both games. In 7 Wonders the player has to plan which card by tactical planning and in Ricocheting robots the tactical planning element is how to move and place the robot pieces to reach the goal tile. 
+  As Figures \ref{fig:A7W} and \ref{fig:RRW} shows there are a lot of similarities between the games. 
+  Even though they are different genres and their basic gameplay do not share any similarities. 
+  The main gameplay mechanic is that of the \textit{tactical planning} which is important in both games. 
+  In 7 Wonders the player has to plan which card by tactical planning and in Ricocheting robots the tactical planning element is how to move and place the robot pieces to reach the goal tile. 
 
   \paragraph{Another similarity is that both games have been able to avoid \textit{Analysis Paralysis}} through different mechanics.
   \textit{Analysis Paralysis} is when a player is presented with a couple of options and takes a long time to reach a decision, which forces other players wait before starting their player session.
@@ -339,7 +372,7 @@ Our thoughts about this is even if that is the case this is the nature of the \t
 Also to get in the spot of the getting the perfect card one has to make decisions so that one minimize the possibility that an opponent need the same "perfect card" as oneself.
 Also the reward of this can get a player more engage. One could argue that this can make the opponents less engaged in the game due to the advantage, but our opinion is that even if a player gets a big advantage the game instances are short enough so that other players would not have time to lose interest.  
 
-\paragraph{In Ricocheting Robots} everyone is playing simultaneously. In most cases you can not be certain that you have found the optimal solution, therefore a player can always try to find a better solution. This keeps players engaged even after they have found a solution. The game revolves around intense Competitive gameplay which is caused by trying to actively best your opponents before the time runs out. The way the game plays out is in itself very engaging. If someone were to dominate their opponents and win every round in a row, there is still a good chance that the other players would not have the time to lose interest due to how short the rounds are. \citeA{futurewolfieRR} argues that this games only engages certain types of players, or rather certain types of brains. That to players who are not good at solving puzzles, or stepping through a solution in their head without moving the pieces, this game will be \textit{Dead on arrival}. We also agrees to this facts, but overall a game cannot satisfy everyone.
+\paragraph{In Ricocheting Robots} everyone is playing simultaneously. In most cases you can not be certain that you have found the optimal solution, therefore a player can always try to find a better solution. This keeps players engaged even after they have found a solution. The game revolves around intense Competitive gameplay which is caused by trying to actively best your opponents before the time runs out. The way the gameplays out is in itself very engaging. If someone were to dominate their opponents and win every round in a row, there is still a good chance that the other players would not have the time to lose interest due to how short the rounds are. \citeA{futurewolfieRR} argues that this games only engages certain types of players, or rather certain types of brains. That to players who are not good at solving puzzles, or stepping through a solution in their head without moving the pieces, this game will be \textit{Dead on arrival}. We also agrees to this facts, but overall a game cannot satisfy everyone.
 
 \subsection{Ending the game in time}
 \paragraph{7 Wonders} have a fixed amount of cards to play during each of the three stages of the game. One card is played each round and each stage consists of six rounds. Therefore, the time it takes to play the game is reliant on how fast players decide upon which cards they want to play.
@@ -347,7 +380,7 @@ Also the reward of this can get a player more engage. One could argue that this 
 
 \paragraph{Ricocheting Robots} has a limited number of Goal tokens, which regulate the game time. There is a possibility that the game could end before all tokens are used. A player only needs to collect a set number of tokens, which is based on how many are playing, in order to win the game. There is also an hourglass which is turned when the first solution is found by a player. This affects gameplay mechanics and adds elements such as stress to the game, but it is also useful when making sure that each round lasts a reasonable amount of time. 
 
-\subsection{Player interaction and the feeling of playing a game togheter}
+\subsection{Player interaction and the feeling of playing a game together}
 \paragraph{In 7 Wonders} one can not directly interact with all other players, only ones neighbours(players on the left and right side).
 One can interact with neighbours by either trade gold for resources or beat them in military power.
 Since all cards have a resource requirements that must be meet to be able to play it.
@@ -382,10 +415,10 @@ Even if is not the winning path, a player will still have figured out the puzzle
 The player will be rewarded further if that path is the shortest of those that were found, in which case the player will receive a token.
 
 \paragraph{Overall both games} is focused on either building up something or collecting something. 
-Even if a player loses non of the games include a destructive pattern, each round either lets you gain something or remain on the same status as the round before. 
+Even if a player loses none of the games include a destructive pattern, each round either lets you gain something or remain on the same status as the round before. 
 The gameplay focuses on who can achieve the most without emphasizing that it should be on someone else's behalf. 
-Strictly speaking you are making it harder for your opponents by attaining tokens or cards, as this limits what is available to them. 
-However, it is done in a way so that no one can end up worse of than when the game started. 
+Strictly speaking you are making it harder for your opponents by obtaining tokens or cards, as this limits what is available to them. 
+However, it is done in a way so that no one can end up worse off than when the game started. 
 Your goal is not to eliminate or steal from you opponents, instead it is to collect and attain more than them while competing alongside them.
 
 \newpage
@@ -393,3 +426,7 @@ Your goal is not to eliminate or steal from you opponents, instead it is to coll
 \bibliography{bib}
 
 \end{document} 
+
+
+
+
