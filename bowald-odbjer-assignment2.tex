@@ -8,6 +8,8 @@
 \usetikzlibrary{positioning}
 \usepackage{xcolor}
 \usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
 
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
@@ -59,6 +61,47 @@ The effect of wonders are unique for each civilisation.
 After the three ages points are counted for each player based on each card type, and the amount of currency when the game is over.
 The player that has the most point at the end wins the game. 
 
+\subsection{Gameplay of 7 Wonders using the component framework}
+In this section we are breaking down the gameplay elements of 7 wonders by using the component framwork \cite{bjork2003describing}.
+\subsubsection{A typical gameinstance of 7 wonders}
+
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item Wich cards that a game should uses is decided by number of players
+  \item Players choces civilisation by picking a player unique gameboard
+  \item Cards are shuffle and each player recives seven cards of the first age
+  \item Drafting session
+  \item Cards are shuffle and each player recives seven cards of the seconed age
+  \item Drafting session
+  \item Cards are shuffle and each player recives seven cards of the third age
+  \item Drafting session
+  \item Outcome is determind by counting points based on card types and currancy
+  \item Clearing the game stat
+\end{itemize}
+
+\subsubsection{A typical game session of 7 wonders}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item Pick civilisation
+  \item Draft of the first age
+  \item Picks a card, chose to play, discard or build wonder. Pass rest of cards to opponent.
+  \item Drafting session of the second age
+  \item Picks a card, chose to play, discard or build wonder. Pass rest of cards to opponent.
+  \item Drafting session of the third age
+  \item Picks a card, chose to play, discard or build wonder. Pass rest of cards to opponent.
+\end{itemize}
+
+\subsubsection{A typical player session of 7 wonders}
+In this game the player session is the same as the game session. All player sessions are simuntainusly due to the drafting mechanich.
+
+\subsubsection{Goals and subgoals}
+\begin{itemize}[noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+  \item Get as high score as possible
+  \item Complete scientific tool sets
+  \item Gathere as many scientific cards of the same type as possible
+  \item Have higher military power then the neighbours
+  \item Complete the civilisations wonder
+  \item Get a high score by stratigically timing the dynamic point cards
+  \item Have enough resources to play the perfect cards
+\end{itemize}
 \section{Gameplay description Ricocheting Robots}
 Ricochet robots is a game where players challenge each other to move a robot to a certain point.
 The game consists of a board with a grid layout. Some of the grid tiles are unique goal tile.
@@ -270,14 +313,14 @@ Red edges indicates that at pattern is in conflict with another pattern.}
 
   \paragraph{Randomness and replayability}.
   In both games randomness is used to give a unique player experience every time.
-  In ricocheting robots due to the random order of goal tokens, the random spawn tiles in the setup phase and the shortest path found by a player, are all variables which makes every game unique. Which increase the replayability of the game. 7 Wonders also rely on making every game session unique for replayability. Due to the randomness of shuffling cards, the draft mechanics behaves differently every time.
+  In ricocheting robots due to the random order of goal tokens, the random spawn tiles in the setup phase and the shortest path found by a player, are all variables which makes every game unique. Which increase the replayability of the game. 7 Wonders also rely on making every game instance unique for replayability. Due to the randomness of shuffling cards, the draft mechanics behaves differently every time.
 
   \paragraph{Social interaction} is very limited in Ricocheting Robots by our opinion.
   As the analysis concludes this is due to the time pressure when a player have found a path.
   Also the competitive nature and the high pace of the game keeps players more engaged in the game then engaged in social interaction.
   \citeA{danbeckRR} disagree with our opinion and argues that Ricocheting Robots are an Social interactive game in the sense of there can be infinitely many players playing at the same time.
   Therefore the game can be played in on social event and players can jump in and out of the game without much impact on the gameplay.
-  We agree with \citeauthor{danbeckRR} statements, but still thinks that due to the \textit{time pressure} mechanic there is less social interactions during the game session.
+  We agree with \citeauthor{danbeckRR} statements, but still thinks that due to the \textit{time pressure} mechanic there is less social interactions during the players game session.
 
 \section{Design structures in the games}
 This section answers the questions stated by the exercise. It focuses on what  specific gameplay mechanics are used to achieve a certain goal. 
@@ -289,7 +332,7 @@ That even if a player makes a lot of decision.
 Most of these decisions do not matter in the end it is about to find the "perfect card" at the right time more than the previous decisions.
 Our thoughts about this is even if that is the case this is the nature of the \textit{drafting} mechanics.
 Also to get in the spot of the getting the perfect card one has to make decisions so that one minimize the possibility that an opponent need the same "perfect card" as oneself.
-Also the reward of this can get a player more engage. One could argue that this can make the opponents less engaged in the game due to the advantage, but our opinion is that even if a player gets a big advantage the game sessions are short enough so that other players would not have time to lose interest.  
+Also the reward of this can get a player more engage. One could argue that this can make the opponents less engaged in the game due to the advantage, but our opinion is that even if a player gets a big advantage the game instances are short enough so that other players would not have time to lose interest.  
 
 \paragraph{In Ricocheting Robots} everyone is playing simultaneously. In most cases you can not be certain that you have found the optimal solution, therefore a player can always try to find a better solution. This keeps players engaged even after they have found a solution. The game revolves around intense Competitive gameplay which is caused by trying to actively best your opponents before the time runs out. The way the game plays out is in itself very engaging. If someone were to dominate their opponents and win every round in a row, there is still a good chance that the other players would not have the time to lose interest due to how short the rounds are.
 
@@ -309,7 +352,7 @@ At the end of each age of the game, a player's military status is compared to on
 The one with a higher military status gets a fixed amount of points while the loser of gets a minus point.
 These points get counted in the \textit{set-down} stage of the game. The number of points is determined by which age the battle is set in.
 The later the age, the higher the points. 
-\citeA{notsacgame7wond} argues that the neighbouring only interaction is a great design due to never attacking a player directly in battle is more friendly for casual gamers Since no one can get too upset when you have no choice about who you attack. \citeauthor{notsacgame7wond} also states that this design of limit player has other benefits in form of decreased game session time.
+\citeA{notsacgame7wond} argues that the neighbouring only interaction is a great design due to never attacking a player directly in battle is more friendly for casual gamers Since no one can get too upset when you have no choice about who you attack. \citeauthor{notsacgame7wond} also states that this design of limit player has other benefits in form of decreased game instance time.
 There are a lot of indirect interaction between all players in 7 Wonders, due to the drafting mechanic. Players should always base their picks on what their opponents are picking.
 For example if someone goes heavy on science cards others need to pick this category or \textit{hate-pick} science cards and use these to build wonders or discarding them for currency.
 \citeA{critical7wond} makes a statement about the scalability of players in the game and the feeling of playing a game togheter.
